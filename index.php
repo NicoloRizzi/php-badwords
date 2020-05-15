@@ -7,26 +7,19 @@
 </head>
 <body>
     <?php
-    /**
-     * Descrizione:
-Creare una variabile con un paragrafo di testo.
-Visualizzare a schermo il paragrafo
-Visualizzare a schermo la relativa lunghezza del paragrafo
-Sostituire tutte le ricorrenze, nel paragrafo creato, della badword passata in GET (query string) con tre * (asterschi).
-Nome della repo per consegnare l’esercizio: php-badwords
-Link utili:
-MAMP dowload: https://www.mamp.info/en/downloads/
-Funzioni per le stringhe: http://php.net/manual/en/ref.strings.php
-Buon lavoro
-     */
     // ref
-    // variabile contentente un valore di tipo stringa
+    // variabile contenente un valore di tipo stringa
     $paragraf = 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore nostrum adipisci quasi sunt placeat nulla aspernatur quisquam. Nam minus saepe inventore animi. Harum beatae cum, reprehenderit ducimus optio porro error.';
-    // variabile contenente una stringa concatenta con un metodo che fornisce il n° di caratteri
-    $legnth = "Il numero di caratteri presenti sono: " . strlen($paragraf);
+    // variabile contenente n° di caratteri
+    $legnth =  strlen($paragraf);
+    // variabile contente il parametro passato dal client
+    $bad_word = $_GET['name'];
+    // variabile contenente la struttura modificata dal metodo str_replace
+    $replace = str_replace($bad_word ,'***', $paragraf);
     ?>
 
-    <p><?php echo $paragraf; ?></p>
-    <p><?php echo $legnth; ?></p>
+    <p><strong>Testo originale: </strong><?php echo $paragraf ?></p>
+    <p><?php echo "Il numero di caratteri presenti sono: " . $legnth ?></p>
+    <p><strong>Testo modificato: </strong><?php echo $replace ?></p>
 </body>
 </html>
